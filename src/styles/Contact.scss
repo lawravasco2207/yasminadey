@@ -1,0 +1,383 @@
+$bright-pink: rgb(255, 105, 180);
+$light-pink: rgb(255, 182, 193);
+$instagram-gradient: linear-gradient(
+  45deg,
+  #f09433 0%,
+  #e6683c 25%,
+  #dc2743 50%,
+  #cc2366 75%,
+  #bc1888 100%
+);
+$tiktok-black: #000000;
+$glitter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="2" fill="white" opacity="0.8"/></svg>');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Dancing+Script:wght@700&display=swap');
+
+.contact-page {
+  min-height: 100vh;
+  background: $bright-pink;
+  padding: 80px 20px 40px;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, $light-pink 10%, transparent 10%),
+                radial-gradient(circle, $light-pink 10%, transparent 10%) 10px 10px;
+    background-size: 20px 20px;
+    opacity: 0.3;
+    z-index: 0;
+  }
+}
+
+.glitter-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: $glitter;
+  animation: sparkle 5s infinite;
+  z-index: 0;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 80px;
+  z-index: 2;
+
+  h1 {
+    font-size: 4.5rem;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 105, 180, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  p {
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+}
+
+.form-section {
+  max-width: 600px;
+  margin: 0 auto 60px;
+  z-index: 10;
+  position: relative;
+  padding-top: 20px;
+
+  form {
+    background: $light-pink;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      font-size: 1.2rem;
+      color: white;
+      margin-bottom: 8px;
+      font-weight: 600;
+      pointer-events: none;
+    }
+
+    input,
+    textarea,
+    select {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      background: white;
+      color: $tiktok-black;
+      resize: vertical;
+      pointer-events: auto;
+      user-select: auto;
+      position: relative;
+      z-index: 11;
+
+      &:focus {
+        outline: none;
+        box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+      }
+    }
+
+    select {
+      appearance: none;
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12"><path fill="white" d="M6 9l4-4H2z"/></svg>');
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+    }
+
+    textarea {
+      min-height: 120px;
+    }
+  }
+
+  .submit-button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: linear-gradient(45deg, $bright-pink, $light-pink);
+    color: white;
+    border: none;
+    border-radius: 20px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    z-index: 11;
+
+    &:before {
+      content: '✨';
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0;
+      animation: sparklePop 3s infinite;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .form-status {
+    margin-top: 20px;
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    animation: fadeIn 0.5s ease-in;
+    z-index: 11;
+  }
+}
+
+.social-section {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 2;
+
+  h2 {
+    font-size: 2.5rem;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    margin-bottom: 30px;
+  }
+
+  .social-links {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .insta-link,
+  .tiktok-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+    padding: 15px;
+    border-radius: 50px;
+    text-decoration: none;
+    font-size: 1.4rem;
+    font-weight: 600;
+    position: relative;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    overflow: hidden;
+    z-index: 2;
+
+    &:before {
+      content: '✨';
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0;
+      animation: sparklePop 3s infinite;
+    }
+  }
+
+  .insta-link {
+    background: $instagram-gradient;
+    color: white;
+
+    svg {
+      animation: instaPulse 1.5s infinite;
+      filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.7));
+    }
+
+    &:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 10px 20px rgba(225, 48, 108, 0.5);
+    }
+  }
+
+  .tiktok-link {
+    background: white;
+    color: $tiktok-black;
+    border: 3px solid $tiktok-black;
+
+    svg {
+      animation: tiktokBounce 1.5s infinite;
+      filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.5));
+    }
+
+    &:hover {
+      transform: scale(1.05) translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+    }
+  }
+}
+
+.heart-decoration {
+  position: absolute;
+  font-size: 2rem;
+  color: $light-pink;
+  animation: float 6s infinite;
+  z-index: 0;
+  pointer-events: none;
+
+  &.heart-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+  }
+  &.heart-2 {
+    top: 20%;
+    right: 10%;
+    animation-delay: 2s;
+  }
+  &.heart-3 {
+    bottom: 15%;
+    left: 15%;
+    animation-delay: 4s;
+  }
+}
+
+// Animations
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 105, 180, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 105, 180, 0.8);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
+@keyframes sparklePop {
+  0%, 80% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+@keyframes instaPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.3);
+  }
+}
+
+@keyframes tiktokBounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .hero-section {
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+  }
+
+  .form-section {
+    form {
+      padding: 20px;
+    }
+    .form-group {
+      label {
+        font-size: 1rem;
+      }
+      input,
+      textarea,
+      select {
+        padding: 10px;
+        font-size: 0.9rem;
+      }
+    }
+    .submit-button {
+      padding: 12px;
+      font-size: 1rem;
+    }
+  }
+
+  .social-section {
+    h2 {
+      font-size: 2rem;
+    }
+    .insta-link,
+    .tiktok-link {
+      font-size: 1.2rem;
+      padding: 12px;
+    }
+  }
+}

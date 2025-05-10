@@ -1,0 +1,206 @@
+$bright-pink: rgb(255, 105, 180);
+$light-pink: rgb(255, 182, 193);
+$glitter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="2" fill="white" opacity="0.8"/></svg>');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Dancing+Script:wght@700&display=swap');
+
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  background: linear-gradient(45deg, $bright-pink, $light-pink);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  z-index: 100;
+  padding: 15px 0;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $glitter;
+    opacity: 0.3;
+    animation: sparkle 5s infinite;
+    z-index: 0;
+    pointer-events: none;
+  }
+}
+
+.navbar-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 20px;
+  position: relative;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 2.5rem;
+  font-family: 'Dancing Script', cursive;
+  color: white;
+  text-decoration: none;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  animation: glow 2s ease-in-out infinite alternate;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.nav-links {
+  display: flex;
+  gap: 20px;
+
+  .nav-link {
+    font-size: 1.1rem;
+    font-family: 'Poppins', sans-serif;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    border-radius: 10px;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 11;
+    pointer-events: auto;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.2);
+      transform: scale(1.1);
+    }
+
+    &.active {
+      background: $bright-pink;
+      box-shadow: 0 0 10px rgba(255, 105, 180, 0.5);
+    }
+  }
+}
+
+.social-links {
+  display: flex;
+  gap: 15px;
+
+  .social-icon {
+    font-size: 1.5rem;
+    color: white;
+    transition: all 0.3s ease;
+    z-index: 11;
+    pointer-events: auto;
+
+    &:hover {
+      transform: scale(1.2);
+      color: $light-pink;
+    }
+  }
+}
+
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 1.8rem;
+  color: white;
+  cursor: pointer;
+  z-index: 12;
+  pointer-events: auto;
+
+  &:hover {
+    transform: scale(1.1);
+  }
+}
+
+.heart-decoration {
+  position: absolute;
+  font-size: 1.5rem;
+  color: $light-pink;
+  animation: float 6s infinite;
+  z-index: 0;
+  pointer-events: none;
+
+  &.heart-1 {
+    top: 10px;
+    left: 5%;
+    animation-delay: 0s;
+  }
+  &.heart-2 {
+    top: 15px;
+    right: 5%;
+    animation-delay: 2s;
+  }
+}
+
+// Mobile Menu
+@media (max-width: 768px) {
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(45deg, $bright-pink, $light-pink);
+    flex-direction: column;
+    align-items: center;
+    padding: 20px 0;
+    transform: translateY(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 10;
+
+    &.open {
+      transform: translateY(0);
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .nav-link {
+      font-size: 1.2rem;
+      padding: 10px;
+      width: 80%;
+      text-align: center;
+    }
+  }
+
+  .social-links {
+    display: none;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .logo {
+    font-size: 2rem;
+  }
+}
+
+// Animations
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 105, 180, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 105, 180, 0.8);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-10px) rotate(10deg);
+  }
+}

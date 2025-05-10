@@ -1,0 +1,324 @@
+$bright-pink: rgb(255, 105, 180);
+$light-pink: rgb(255, 182, 193);
+$glitter: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20"><circle cx="10" cy="10" r="2" fill="white" opacity="0.8"/></svg>');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&family=Dancing+Script:wght@700&display=swap');
+
+.services-page {
+  min-height: 100vh;
+  background: $bright-pink;
+  padding: 80px 20px 40px;
+  position: relative;
+  overflow: hidden;
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, $light-pink 10%, transparent 10%),
+                radial-gradient(circle, $light-pink 10%, transparent 10%) 10px 10px;
+    background-size: 20px 20px;
+    opacity: 0.3;
+    z-index: 0;
+  }
+}
+
+.glitter-effect {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: $glitter;
+  animation: sparkle 5s infinite;
+  z-index: 1;
+}
+
+.hero-section {
+  text-align: center;
+  margin-bottom: 60px;
+  z-index: 2;
+
+  h1 {
+    font-size: 4.5rem;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 105, 180, 0.5);
+    animation: glow 2s ease-in-out infinite alternate;
+  }
+
+  p {
+    font-size: 1.8rem;
+    color: white;
+    font-weight: 300;
+    letter-spacing: 2px;
+  }
+}
+
+.services-section {
+  max-width: 1200px;
+  margin: 0 auto 60px;
+  text-align: center;
+  z-index: 10;
+
+  h2 {
+    font-size: 2.5rem;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    margin-bottom: 30px;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+
+  .service-card {
+    background: $light-pink;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease;
+
+    &:hover {
+      transform: scale(1.05);
+    }
+
+    .service-icon {
+      color: white;
+      margin-bottom: 20px;
+      animation: iconPulse 2s infinite;
+    }
+
+    h3 {
+      font-size: 1.5rem;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    p {
+      font-size: 1rem;
+      color: white;
+      margin-bottom: 20px;
+    }
+
+    .service-cta {
+      display: inline-block;
+      padding: 10px 20px;
+      background: $bright-pink;
+      color: white;
+      text-decoration: none;
+      border-radius: 20px;
+      font-weight: 600;
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
+      }
+    }
+  }
+}
+
+.testimonials-section {
+  max-width: 800px;
+  margin: 0 auto 60px;
+  text-align: center;
+  z-index: 2;
+
+  h2 {
+    font-size: 2.5rem;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    margin-bottom: 30px;
+  }
+
+  .testimonials-slider {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto;
+    padding-bottom: 20px;
+    scrollbar-width: none;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
+  .testimonial-card {
+    flex: 0 0 300px;
+    background: $light-pink;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+
+    .quote {
+      font-size: 1.2rem;
+      color: white;
+      font-style: italic;
+      margin-bottom: 10px;
+    }
+
+    .client {
+      font-size: 1rem;
+      color: white;
+      font-weight: 600;
+    }
+  }
+}
+
+.cta-section {
+  text-align: center;
+  margin-bottom: 60px;
+  z-index: 2;
+
+  h2 {
+    font-size: 2.5rem;
+    font-family: 'Dancing Script', cursive;
+    color: white;
+    margin-bottom: 20px;
+  }
+
+  .cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, $bright-pink, $light-pink);
+    color: white;
+    text-decoration: none;
+    border-radius: 30px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+
+    &:before {
+      content: '✨';
+      position: absolute;
+      font-size: 2rem;
+      opacity: 0;
+      animation: sparklePop 3s infinite;
+    }
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    }
+  }
+}
+
+.heart-decoration {
+  position: absolute;
+  font-size: 2rem;
+  color: $light-pink;
+  animation: float 6s infinite;
+  z-index: 1;
+
+  &.heart-1 {
+    top: 10%;
+    left: 5%;
+    animation-delay: 0s;
+  }
+  &.heart-2 {
+    top: 20%;
+    right: 10%;
+    animation-delay: 2s;
+  }
+  &.heart-3 {
+    bottom: 15%;
+    left: 15%;
+    animation-delay: 4s;
+  }
+}
+
+// Animations
+@keyframes glow {
+  from {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(255, 105, 180, 0.5);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255, 255, 255, 1), 0 0 30px rgba(255, 105, 180, 0.8);
+  }
+}
+
+@keyframes sparkle {
+  0% {
+    background-position: 0 0;
+  }
+  100% {
+    background-position: 100px 100px;
+  }
+}
+
+@keyframes sparklePop {
+  0%, 80% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  90% {
+    opacity: 1;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-20px) rotate(10deg);
+  }
+}
+
+@keyframes iconPulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.2);
+  }
+}
+
+// Responsive Design
+@media (max-width: 768px) {
+  .hero-section {
+    h1 {
+      font-size: 3rem;
+    }
+    p {
+      font-size: 1.4rem;
+    }
+  }
+
+  .services-section {
+    h2 {
+      font-size: 2rem;
+    }
+  }
+
+  .testimonials-section {
+    h2 {
+      font-size: 2rem;
+    }
+    .testimonial-card {
+      flex: 0 0 250px;
+    }
+  }
+
+  .cta-section {
+    h2 {
+      font-size: 2rem;
+    }
+    .cta-button {
+      padding: 10px 20px;
+      font-size: 1rem;
+    }
+  }
+}
